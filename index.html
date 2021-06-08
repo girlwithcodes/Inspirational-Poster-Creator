@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script defer src="index.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="index.css" type="text/css">
+  <title>Inspirational Poster Creator</title>
+</head>
+<body>
+  <header></header>
+  <main>
+    <section id="poster-sect">
+      <div id="pic-div">
+        <div id="quote-div">
+          <p id="quote-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p id="quote-author">by Author</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="choice-menus">
+      <div class="choices-div" id="quote-choice">
+        <label for="quote-genres">Choose a Quote Genre:</label>
+        <select id="quote-genres"></select>
+        <button id="get-quote">New Quote</button>
+        <div id="quote-preview-div">Quote Preview</div>
+      </div>
+      <div class="choices-div" id="pic-choice">
+        <label for="pic-themes">Choose a Background Image Theme:</label>
+        <select id="pic-themes"></select>
+        <button id="get-pic">New Background</button>
+        <p>Background Preview</p>
+      </div>
+      <div class="choices-div" id="font-choice">
+        <label for="font-list">Choose a Font</label>
+        <select id="font-list"></select>
+        <button id="change-font">Apply Font</button>
+        <p id="font-preview">Font Preview</p>
+      </div>
+      <div class="choices-div" id="layout-choice">
+        <label for="layout-list">Choose a Layout:</label>
+        <select id="layout-list"></select>
+        <button id="change-layout">Apply Layout</button>
+        <p>Layout Preview</p>
+      </div>
+    </section>
+  </main>
+  
+</body>
+</html>

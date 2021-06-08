@@ -1,0 +1,39 @@
+main {
+  display: grid;
+  grid-template-areas: 
+  "A A A B B"
+  "A A A B B"
+  "A A A B B"
+  "A A A B B";
+}
+#pic-div {
+  width: 50vw;
+  height: 75vh;
+  border: 1px solid black;
+}
+#poster-sect {
+  border: 2px solid red;
+  /* width: 60vw; */
+  /* height: 90vh; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-position: cover;
+  grid-area: A;
+}
+#quote-div {
+  width: 50vw;
+  border: 1px solid red;
+}
+#choice-menus {
+  grid-area: B;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid blue;
+}
+.choices-div {
+  border: 1px solid orange;
+}
