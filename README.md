@@ -17,8 +17,10 @@ API (possible): Google Fonts Developer API
 ![Snippet of JSON data returned by API call](./JSON-data-snippet.png "JSON Data Snippet")
 
 ## Wireframes
+### Desktop
 ![Desktop/laptop Wireframe](./project-wireframe.png "Desktop/Laptop Wireframe")
 
+### Mobile
 ![Mobile Wireframe](./project-mobile-wireframe.png "Mobile Wireframe")
 
 ### MVP/PostMVP
