@@ -18,6 +18,7 @@ API (possible): Google Fonts Developer API
 
 ## Wireframes
 ![Desktop/laptop Wireframe](./project-wireframe.png "Desktop/Laptop Wireframe")
+
 ![Mobile Wireframe](./project-mobile-wireframe.png "Mobile Wireframe")
 
 ### MVP/PostMVP
