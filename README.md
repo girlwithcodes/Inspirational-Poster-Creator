@@ -63,7 +63,7 @@ Last, users will be able to select a layout from an array of pre-built layouts.
 | CSS effects | H | 2hr | -- | -- |
 | Research and Learning New Techniques | H | 4hr | -- | -- |
 | Experimenting | H | 4hr | -- | -- |
-| Debugging H | 6hr | -- | -- |
+| Debugging | H | 6hr | -- | -- |
 | Flex Time | H | 9hr | -- | -- |
 | Total | H | 48hrs| -- | -- |
 
