@@ -1,3 +1,4 @@
+
 //function to quote genre dropdown list when passed genreList array
 const listGenres = (genreList) => {
   //save dropdown html dropdown list to variable
@@ -42,16 +43,19 @@ const removePreviousQuotePreview = () => {
 const applyQuote = (e) => {
   e.preventDefault();
 
+  //get current poster text elements
   const posterQuoteText = document.querySelector("#quote-text");
   const posterAuthor = document.querySelector("#quote-author");
 
+  //get current preview text elements 
   const previewQuoteText = document.querySelector("#preview-quote-text");
   const previewAuthor = document.querySelector("#preview-author");
 
+  //change poster text to match preview text
   posterQuoteText.innerText = previewQuoteText.innerText;
   posterAuthor.innerText = previewAuthor.innerText;
-
 }
+
 
 //displays preview of quote, creates button to apply quote to poster
 const previewQuote = (quoteData) => {
@@ -91,6 +95,7 @@ const previewQuote = (quoteData) => {
   applyButton.addEventListener("click", applyQuote);
 }
 
+
 //get a random quote using the quote garden API
 const getRandomQuote = async(e) => {
   //prevent page reload
@@ -118,10 +123,118 @@ const getRandomQuote = async(e) => {
   }
 }
 
-const getRandomPic = () => {
+
+//populate image topics dropdown menu with topics list from Unsplash API call
+const listImageThemes = (topicsList) => {
+  
+  //grab dropdown menu for topics list
+  const themesMenu = document.querySelector("#pic-themes");
+  
+  //loop over topicsList array and add an option tag for each with Unsplash topic ID as option value
+  //and append to dropdown menu
+  topicsList.forEach(topic => {
+    const themeItem = document.createElement("option");
+    themeItem.innerText = topic.title;
+    themeItem.value = topic.id;
+    themesMenu.append(themeItem);
+  })
+}
+
+
+//get list of image topics from Unsplash API
+//call function to populate topics dropdown menu with topic list
+const getImageTopics = async () => {
+  
+  //url to return list of all 27 image topics from unsplash
+  const url = "https://api.unsplash.com/topics/?client_id=cirZDpP6EXieKtfB9ethI1UinEjLOoSQTBN9rQYu3w8&per_page=27";
+  
   try {
-    // const url = "https://api.unsplash.com/photos/?client_id=cirZDpP6EXieKtfB9ethI1UinEjLOoSQTBN9rQYu3w8";
-    const url = "https://source.unsplash.com/featured/?sunset/900x900";
+    //get data from unsplash and assign array of topics to topicsList variable
+    const response = await axios.get(url);
+    const topicsList = response.data;
+    listImageThemes(topicsList);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+//remove prevous background preview from background choice div
+const removePreviousBackgroundPreview = () => {
+  const previousImage = document.querySelector("#background-preview-div");
+  if(previousImage) {
+    previousImage.remove();
+  }
+}
+
+//apply background to poster
+const applyBackground = (imageData) => {
+
+//get poster div
+const poster = document.querySelector("#pic-div");
+poster.style.background = `no-repeat center/100% url(${imageData.urls.regular})`;
+
+}
+
+//displays preview of randomly generated background image as a thumbnail 
+//and creates button to allow user to choose to apply it to poster 
+const previewBackground = (imageData) => {
+  //get correct div to which to append thumbnail preview
+  const backgroundChoiceDiv = document.querySelector("#pic-choice");
+
+  //remove previous preview
+  removePreviousBackgroundPreview();
+
+  //create div to hold preview image and button
+  const previewDiv = document.createElement("div");
+  previewDiv.id = "background-preview-div";
+
+  //create preview image and assign src to thumbnail url
+  const previewImage = document.createElement("img");
+  previewImage.id = "pic-preview";
+  previewImage.maxHeight = "50px";
+  previewImage.src = imageData.urls.raw + "&h=100";
+
+  //create Apply Background Button
+  const applyBackgroundButton = document.createElement("button");
+  applyBackgroundButton.id = "apply-background";
+  applyBackgroundButton.innerText = "Apply Background";
+
+  previewDiv.append(previewImage, applyBackgroundButton);
+  backgroundChoiceDiv.append(previewDiv);
+
+  //add event listener to apply background function
+  applyBackgroundButton.addEventListener("click", () => {
+    applyBackground(imageData);
+  });
+
+}
+
+//gets random picture object from Unsplash API based on user-selected theme
+//calls function to preview photo
+const getRandomPicOnTheme = async(e) => {
+  e.preventDefault();
+
+  //get selected theme from topics dropdown menu
+  const topicDropdown = document.querySelector("#pic-themes");
+  const topic = topicDropdown[topicDropdown.selectedIndex].value;
+
+  //url to generate random picture with chosen theme
+  const url = `https://api.unsplash.com/photos/random/?client_id=cirZDpP6EXieKtfB9ethI1UinEjLOoSQTBN9rQYu3w8&topics=${topic}`;
+
+  try {
+    //axios call to get random pic
+    const response = await axios.get(url);
+  
+    //pass response data to previewBackground function
+    previewBackground(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const getRandomPicOnLoad = () => {
+  try {
+    const url = "https://source.unsplash.com/featured/";
     const picDiv = document.querySelector('#pic-div');
     const pic = document.createElement('img');
     pic.style.maxWidth = "100%";
@@ -134,7 +247,36 @@ const getRandomPic = () => {
   }
 }
 
+
+//change the font color of the poster text
+const changeQuoteColor = (event) => {
+  //get poster text elements
+  const quoteText = document.querySelector("#quote-text");
+  const quoteAuthor = document.querySelector("#quote-author");
+
+  //change color to match color picker current value
+  quoteText.style.color = event.target.value;
+  quoteAuthor.style.color = event.target.value;
+}
+
+
+//get buttons and inputs that will have event listeners
 const getQuoteButton = document.querySelector("#get-quote");
-getQuoteButton.addEventListener('click', getRandomQuote);
-getRandomPic();
+const fontColorPicker = document.querySelector("#font-color-picker");
+const getImageButton = document.querySelector("#get-pic");
+
+//apply event lister to get-quote button to generate and preview a random quote
+getQuoteButton.addEventListener("click", getRandomQuote);
+
+//attach event listners to color picker to change poster text color
+fontColorPicker.addEventListener("change", changeQuoteColor);
+fontColorPicker.addEventListener("input", changeQuoteColor);
+
+//attach event listener to new-background to generate and preview random image
+getImageButton.addEventListener("click", getRandomPicOnTheme);
+
+//call functions that should run on load
+getRandomPicOnLoad();
 getQuoteGenres();
+getImageTopics();
+getRandomPicOnTheme();

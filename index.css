@@ -37,3 +37,12 @@ main {
 .choices-div {
   border: 1px solid orange;
 }
+
+@media only screen and (max-width: 768px) {
+  #pic-div {
+    width: 80vw;
+    height: 60vh;
+    border: 1px solid black;
+  }
+
+}
