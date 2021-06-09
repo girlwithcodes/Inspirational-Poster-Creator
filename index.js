@@ -1,7 +1,8 @@
 
 //function to quote genre dropdown list when passed genreList array
 const listGenres = (genreList) => {
-  //save dropdown html dropdown list to variable
+  
+  //get quote genre dropdown list to variable
   const genreMenu = document.querySelector("#quote-genres");
   
   //loop through array of genres to create an option tag for each and 
@@ -10,6 +11,9 @@ const listGenres = (genreList) => {
     const genreItem = document.createElement("option");
     genreItem.innerText = genre;
     genreItem.value = genre;
+    if(genre==="art") {
+      genreItem.setAttribute("selected", "selected");
+    }
     genreMenu.append(genreItem);
   })
 }
@@ -136,6 +140,9 @@ const listImageThemes = (topicsList) => {
     const themeItem = document.createElement("option");
     themeItem.innerText = topic.title;
     themeItem.value = topic.id;
+    if(topic.id==="bDo48cUhwnY") {
+      themeItem.setAttribute("selected", "selected");
+    }
     themesMenu.append(themeItem);
   })
 }
@@ -202,13 +209,13 @@ const applyBackground = (imageData) => {
   }
 
   //create image element to add to poster
-  const bgImg = document.createElement("img");
-  bgImg.style.objectFit = "scale-down";
-  bgImg.src = imageData.urls.regular;
-  bgImg.id = "poster-image";
+  const posterImage = document.createElement("img");
+  posterImage.style.objectFit = "scale-down";
+  posterImage.src = imageData.urls.regular;
+  posterImage.id = "poster-image";
 
   //append image to poster
-  poster.append(bgImg);
+  poster.append(posterImage);
 
   //get quote div and set width and height
   const posterQuoteDiv = document.querySelector("#quote-div");
@@ -300,11 +307,72 @@ const changeQuoteColor = (event) => {
   quoteAuthor.style.color = event.target.value;
 }
 
+//create a font preview in font choice div
+const previewFont = () => {
+  
+  //get font choice dropdown menu
+  const fontMenu = document.querySelector("#font-list");
+
+  //get selected font from dropdown menu
+  const fontChoice = fontMenu[fontMenu.selectedIndex].value;
+
+  //get font preview paragraph
+  const fontPreview = document.querySelector("#font-preview");
+  
+  //set font of preview text to match selected font
+  fontPreview.style.fontFamily = fontChoice;
+}
+
+const listFonts = () => {
+  //set array of font options
+  const fontList = [
+    {fontFamily: ["Viaoda Libre", " cursive"]},
+    {fontFamily: ["Indie Flower", " cursive"]},
+    {fontFamily: ["Pacifico", " cursive"]},
+    {fontFamily: ["Libre Baskerville", " serif"]},
+    {fontFamily: ["Dancing Script", " cursive"]},
+    {fontFamily: ["Shadows Into Light", " cursive"]},
+    {fontFamily: ["Patrick Hand", " cursive"]},
+    {fontFamily: ["Orbitron", " sans-serif"]},
+    {fontFamily: ["Josefin Slab", " serif"]},
+    {fontFamily: ["Bad Script", " cursive"]}
+  ]
+
+  //get font dropdown menu
+  const fontMenu = document.querySelector("#font-list");
+
+  //create a font option for each item in the font list and append to
+  //font dropdown menu
+  fontList.forEach(font => {
+    const fontOption = document.createElement("option");
+    fontOption.innerText = font.fontFamily[0];
+    fontOption.value = font.fontFamily;
+    fontMenu.append(fontOption);
+  })
+
+  previewFont();
+}
+
+//apply currently selected font to poster text
+const applyFont = () => {
+  //get poster quote and author text
+  const quoteDiv = document.querySelector("#quote-div");
+
+  //get font dropdown menu and currently selected font
+  const fontMenu = document.querySelector("#font-list");
+  const selectedFont = fontMenu[fontMenu.selectedIndex].value;
+
+  //apply selected font to poster text
+  quoteDiv.style.fontFamily = selectedFont;
+}
+
 
 //get buttons and inputs that will have event listeners
 const getQuoteButton = document.querySelector("#get-quote");
 const fontColorPicker = document.querySelector("#font-color-picker");
 const getImageButton = document.querySelector("#get-pic");
+const fontDropdownMenu = document.querySelector("#font-list");
+const applyFontButton = document.querySelector("#change-font");
 
 //apply event lister to get-quote button to generate and preview a random quote
 getQuoteButton.addEventListener("click", getRandomQuote);
@@ -316,8 +384,17 @@ fontColorPicker.addEventListener("input", changeQuoteColor);
 //attach event listener to new-background to generate and preview random image
 getImageButton.addEventListener("click", getRandomPicOnTheme);
 
+//attach event listener to preview font in font choice window when user
+//selects a new font from the dropdown
+fontDropdownMenu.addEventListener("change", previewFont);
+
+//attach event listener to applyFont button to change font on poster 
+//when clicked
+applyFontButton.addEventListener("click", applyFont);
+
 //call functions that should run on load
-getRandomPicOnLoad();
+//getRandomPicOnLoad();
 getQuoteGenres();
 getImageTopics();
 getRandomPicOnTheme();
+listFonts();
