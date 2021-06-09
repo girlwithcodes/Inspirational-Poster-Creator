@@ -28,6 +28,9 @@ main {
   border: 1px solid rgb(0, 255, 42);
   position: absolute;
 }
+#quote-text {
+  font-size: 20px;
+}
 #choice-menus {
   grid-area: B;
   display: flex;
