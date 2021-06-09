@@ -7,9 +7,10 @@ main {
   "A A A B B";
 }
 #pic-div {
-  width: 50vw;
-  height: 75vh;
-  border: 1px solid black;
+  /* width: 50vw;
+  height: 75vh; */
+  border: 1px solid rgb(155, 67, 255);
+  position: relative;
 }
 #poster-sect {
   border: 2px solid red;
@@ -23,8 +24,9 @@ main {
   grid-area: A;
 }
 #quote-div {
-  width: 50vw;
-  border: 1px solid red;
+  /* width: 50vw; */
+  border: 1px solid rgb(0, 255, 42);
+  position: absolute;
 }
 #choice-menus {
   grid-area: B;
@@ -36,6 +38,14 @@ main {
 }
 .choices-div {
   border: 1px solid orange;
+}
+
+div.landscape > img {
+  width: 50vw;
+}
+
+div.portrait > img {
+  height: 75vh;
 }
 
 @media only screen and (max-width: 768px) {

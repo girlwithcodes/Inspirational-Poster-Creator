@@ -166,13 +166,54 @@ const removePreviousBackgroundPreview = () => {
   }
 }
 
+//remove previous background from poster
+const removePreviousBackground = () => {
+  const previousImage = document.querySelector("#poster-image");
+  if(previousImage) {
+    previousImage.remove();
+  }
+}
+
 //apply background to poster
 const applyBackground = (imageData) => {
 
-//get poster div
-const poster = document.querySelector("#pic-div");
-poster.style.background = `no-repeat center/100% url(${imageData.urls.regular})`;
+  //remove previous background
+  removePreviousBackground();
 
+  //get poster div and set width and height
+  const poster = document.querySelector("#pic-div");
+  poster.height = imageData.height + "px";
+  poster.width = imageData.width + "px";
+  
+  //apply landscape or portrait class for css styling
+  if (imageData.height > imageData.width && !poster.classList.contains("portrait")) {
+    if(poster.classList.contains("landscape")) {
+      poster.classList.replace("landscape", "portrait");
+    } else {
+      poster.classList.add("portrait");
+    }
+  }
+  if (imageData.width > imageData.height && !poster.classList.contains("landscape")) {
+    if(poster.classList.contains("portrait")) {
+      poster.classList.replace("portrait", "landscape");
+    } else {
+      poster.classList.add("landscape");
+    }
+  }
+
+  //create image element to add to poster
+  const bgImg = document.createElement("img");
+  bgImg.style.objectFit = "scale-down";
+  bgImg.src = imageData.urls.regular;
+  bgImg.id = "poster-image";
+
+  //append image to poster
+  poster.append(bgImg);
+
+  //get quote div and set width and height
+  const posterQuoteDiv = document.querySelector("#quote-div");
+  posterQuoteDiv.width = imageData.width;
+  posterQuoteDiv.height = imageData.height;
 }
 
 //displays preview of randomly generated background image as a thumbnail 
