@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Dancing+Script&family=Indie+Flower&family=Josefin+Slab:wght@100&family=Libre+Baskerville&family=Orbitron&family=Pacifico&family=Patrick+Hand&family=Shadows+Into+Light&family=Viaoda+Libre&display=swap" rel="stylesheet">
-  
+<link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Dancing+Script&family=Emilys+Candy&family=Indie+Flower&family=Josefin+Slab:wght@100&family=Libre+Baskerville&family=Mountains+of+Christmas&family=Orbitron&family=Pacifico&family=Paprika&family=Patrick+Hand&family=Rancho&family=Rochester&family=Shadows+Into+Light&family=Viaoda+Libre&display=swap" rel="stylesheet">
+
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script defer src="index.js" charset="utf-8"></script>
@@ -15,36 +15,39 @@
   <title>Inspirational Poster Creator</title>
 </head>
 <body>
-  <header></header>
+  <header>
+    <h1>Inspiration Corner</h1>
+  </header>
   <main>
     <section id="poster-sect">
+      <h2>Your Poster</h2>
       <div id="pic-div">
         <div id="quote-div">
-          <p id="quote-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p id="quote-author">by Author</p>
+          <p id="quote-text"></p>
+          <p id="quote-author"></p>
         </div>
+        <!-- <img src="PlaceholderPic.png"> -->
       </div>
     </section>
 
     <section id="choice-menus">
       <div class="choices-div" id="quote-choice">
-        <label for="quote-genres">Choose a Quote Genre:</label>
+        <label for="quote-genres">Choose Quote Genre:</label>
         <select id="quote-genres"></select>
         <button id="get-quote">New Quote</button>
         <div id="quote-preview-div">Quote Preview</div>
       </div>
       <div class="choices-div" id="pic-choice">
-        <label for="pic-themes">Choose a Background Image Theme:</label>
+        <label for="pic-themes">Choose Background Theme:</label>
         <select id="pic-themes"></select>
         <button id="get-pic">New Background</button>
-        <p>Background Preview</p>
       </div>
       <div class="choices-div" id="font-choice">
-        <label for="font-list">Choose a Font</label>
+        <label for="font-list">Choose a Font:</label>
         <select id="font-list"></select>
         <button id="change-font">Apply Font</button>
         <p id="font-preview">Font Preview</p>
-        <label for="font-color-picker">Choose Font Color</label>
+        <label for="font-color-picker">Choose Font Color:</label>
         <input type="color" id="font-color-picker">
       </div>
       <div class="choices-div" id="layout-choice">
@@ -55,6 +58,10 @@
       </div>
     </section>
   </main>
+
+  <footer>
+
+  </footer>
   
 </body>
 </html>

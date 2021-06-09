@@ -11,6 +11,12 @@ const fontList = [
   {fontFamily: ["Orbitron", " sans-serif"]},
   {fontFamily: ["Josefin Slab", " serif"]},
   {fontFamily: ["Bad Script", " cursive"]}
+  //font-family: 'Rancho', cursive;
+  //font-family: 'Rochester', cursive;
+  //font-family: 'Mountains of Christmas', cursive;
+  //font-family: 'Emilys Candy', cursive;
+  //font-family: 'Paprika', cursive;
+
 ]
 
 //===============================================================================//
@@ -465,8 +471,7 @@ const generateRandomPoster = async() => {
 
     //get main quote object with quote text and author from response
     const quoteData = quoteResponse.data.data[0];
-    console.log(quoteData);
-
+  
     //apply random quote to poster
     //get current poster text elements
     const posterQuoteText = document.querySelector("#quote-text");
@@ -484,8 +489,6 @@ const generateRandomPoster = async() => {
     //generate a random index from global font list variable:
     const fontIndex = Math.floor(Math.random() * fontList.length);
     const font = fontList[fontIndex].fontFamily.join();
-
-    console.log(font);
 
     posterQuoteText.style.fontFamily = font;
     posterAuthor.style.fontFamily = font;
@@ -535,9 +538,7 @@ fontDropdownMenu.addEventListener("change", previewFont);
 applyFontButton.addEventListener("click", applyFont);
 
 //call functions that should run on load
-//getRandomPicOnLoad();
 getQuoteGenres();
 getImageTopics();
-//getRandomPicOnTheme();
 listFonts();
 generateRandomPoster();

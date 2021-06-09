@@ -1,4 +1,26 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #74ebd5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #74ebd5, #ACB6E5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #74ebd5, #ACB6E5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+footer {
+  width: 95vw;
+  height: 5vh;
+}
+
+header {
+  width: 95vw;
+  height: 30vh;
+  
+}
+
 main {
+  width: 95vw;
   display: grid;
   grid-template-areas: 
   "A A A B B"
@@ -6,41 +28,24 @@ main {
   "A A A B B"
   "A A A B B";
 }
-#pic-div {
-  /* width: 50vw;
-  height: 75vh; */
-  border: 1px solid rgb(155, 67, 255);
-  position: relative;
+h1 {
+  font-family: 'Rancho', cursive;
 }
-#poster-sect {
-  border: 2px solid red;
-  /* width: 60vw; */
-  /* height: 90vh; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-position: cover;
-  grid-area: A;
+
+h2 {
+  font-family: 'Bad Script', cursive;
 }
-#quote-div {
-  /* width: 50vw; */
-  border: 1px solid rgb(0, 255, 42);
-  position: absolute;
-}
-#quote-text {
-  font-size: 20px;
-}
-#choice-menus {
-  grid-area: B;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid blue;
-}
+
 .choices-div {
   border: 1px solid orange;
+  height: 20vh;
+  text-align: center;
+  margin: 1vh;
+  font-family: 'Bad Script', cursive;
+}
+
+.choices-div p{
+  font-size: 20px;
 }
 
 div.landscape > img {
@@ -49,6 +54,47 @@ div.landscape > img {
 
 div.portrait > img {
   height: 75vh;
+}
+
+
+#pic-div {
+  /* width: 50vw;
+  height: 75vh; */
+  border: 1px solid rgb(155, 67, 255);
+  position: relative;
+}
+
+#poster-sect {
+  border: 2px solid red;
+  /* width: 60vw; */
+  /* height: 90vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-position: cover; */
+  grid-area: A;
+}
+
+#quote-div {
+  /* width: 50vw; */
+  border: 1px solid rgb(0, 255, 42);
+  position: absolute;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#quote-text {
+  font-size: 20px;
+}
+
+#choice-menus {
+  grid-area: B;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid blue;
 }
 
 @media only screen and (max-width: 768px) {
