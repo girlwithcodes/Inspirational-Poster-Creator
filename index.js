@@ -10,13 +10,12 @@ const fontList = [
   {fontFamily: ["Patrick Hand", " cursive"]},
   {fontFamily: ["Orbitron", " sans-serif"]},
   {fontFamily: ["Josefin Slab", " serif"]},
-  {fontFamily: ["Bad Script", " cursive"]}
-  //font-family: 'Rancho', cursive;
-  //font-family: 'Rochester', cursive;
-  //font-family: 'Mountains of Christmas', cursive;
-  //font-family: 'Emilys Candy', cursive;
-  //font-family: 'Paprika', cursive;
-
+  {fontFamily: ["Bad Script", " cursive"]}, 
+  {fontFamily: ["Rancho", "cursive"]},
+  {fontFamily: ["Rochester", "cursive"]},
+  {fontFamily: ["Mountains of Christmas", "cursive"]},
+  {fontFamily: ["Emilys Candy", "cursive"]},
+  {fontFamily: ["Paprika", "cursive"]}
 ]
 
 //===============================================================================//
@@ -270,6 +269,7 @@ const applyBackground = (imageData) => {
   const posterImage = document.createElement("img");
   posterImage.style.objectFit = "scale-down";
   posterImage.src = imageData.urls.regular;
+  posterImage.maxWidth = "50vw";
   posterImage.id = "poster-image";
 
   //append image to poster
@@ -297,8 +297,8 @@ const previewBackground = (imageData) => {
   //create preview image and assign src to thumbnail url
   const previewImage = document.createElement("img");
   previewImage.id = "pic-preview";
-  previewImage.maxHeight = "50px";
-  previewImage.src = imageData.urls.raw + "&h=100";
+  previewImage.maxHeight = "8vh";
+  previewImage.src = imageData.urls.raw + "&h=90";
 
   //create Apply Background Button
   const applyBackgroundButton = document.createElement("button");
@@ -377,14 +377,90 @@ const previewFont = () => {
 const applyFont = () => {
   //get poster quote and author text
   const quoteDiv = document.querySelector("#quote-div");
+  const quoteText = document.querySelector("#quote-text");
+  const authorText = document.querySelector("#quote-author");
 
   //get font dropdown menu and currently selected font
   const fontMenu = document.querySelector("#font-list");
   const selectedFont = fontMenu[fontMenu.selectedIndex].value;
+  console.log(selectedFont);
 
   //apply selected font to poster text
   quoteDiv.style.fontFamily = selectedFont;
+  quoteText.style.fontFamily = selectedFont;
+  authorText.style.fontFamily=selectedFont;
 }
+
+//function to change fontsizes
+const changeFontSize = (event) => {
+  const buttonClicked = event.target;
+  
+  const quoteText = document.querySelector("#quote-text");
+  const quoteStyle = window.getComputedStyle(quoteText, null).getPropertyValue('font-size');
+  const currQuoteSize = parseFloat(quoteStyle);
+  
+  const quoteAuthor = document.querySelector("#quote-author");
+  const authorStyle = window.getComputedStyle(quoteAuthor, null).getPropertyValue('font-size');
+  const currAuthorSize = parseFloat(authorStyle);
+  
+  const quoteLineStyle = window.getComputedStyle(quoteText, null).getPropertyValue('line-height');
+  const currLineSize = parseFloat(quoteLineStyle);
+
+  switch (buttonClicked.id) {
+    case "quote-plus":
+      if(currQuoteSize < 40) {
+        const newFontSize = currQuoteSize + 1;
+        quoteText.style.fontSize = String(newFontSize) + "px";
+        const newLineHeight = currLineSize + 1;
+        quoteText.style.lineHeight = String(newLineHeight) + "px";
+      }
+      break;
+    case "quote-minus":
+      if(currQuoteSize > 6) {
+        const newFontSize = currQuoteSize - 1;
+        quoteText.style.fontSize = String(newFontSize) + "px";
+        const newLineHeight = currLineSize - 1;
+        quoteText.style.lineHeight = String(newLineHeight) + "px";
+      }
+      break;
+    case "author-plus":
+      if(currQuoteSize < 30) {
+        const newFontSize = currAuthorSize + 1;
+        quoteAuthor.style.fontSize = String(newFontSize) + "px";
+      }
+      break;
+    case "author-minus":
+      if(currQuoteSize > 6) {
+        const newFontSize = currAuthorSize - 1;
+        quoteAuthor.style.fontSize = String(newFontSize) + "px";
+      }
+      break;
+  }
+
+}
+
+//========================================================================================//
+//
+//    Layout functions - remove a previous layout and add a new layout to poster
+//
+//========================================================================================//
+
+
+//changes the layout class of the poster to match the layout clicked in the layout
+//preview window by removing 
+const changeLayout = (newLayout) => {
+
+  const quoteDiv = document.querySelector("#quote-div");
+  const quoteDivClasses = quoteDiv.classList.values();
+  
+  for(let currentClass of quoteDivClasses) {
+    if(currentClass.includes("layout-")){
+      quoteDiv.classList.replace(currentClass, newLayout);
+    }
+  }
+
+}
+
 
 //========================================================================================//
 //
@@ -500,8 +576,6 @@ const generateRandomPoster = async() => {
   } catch (error) {
     console.log(error);
   }
-  //get random layout and apply to poster
-  
 }
 
 //========================================================================================//
@@ -510,35 +584,70 @@ const generateRandomPoster = async() => {
 //          to execute on load
 //
 //========================================================================================//
+ 
+//function to apply event listeners to layout preview images
+const addListenersToLayoutPrevs = () => {
+  const layoutPreviewList = document.querySelectorAll(".layout-prev");
 
+  layoutPreviewList.forEach(layoutPreview => {
+    layoutPreview.addEventListener("click", function() {
+      changeLayout(layoutPreview.id);
+    })
+  })
+}
 
-//get buttons and inputs that will have event listeners
+//function to apply event listeners to all elements that need them
+const addAllEventListeners = () => {
+  //apply event lister to get-quote button to generate and preview a random quote
+  getQuoteButton.addEventListener("click", getRandomQuote);
+
+  //attach event listners to color picker to change poster text color
+  fontColorPicker.addEventListener("change", changeQuoteColor);
+  fontColorPicker.addEventListener("input", changeQuoteColor);
+
+  //attach event listener to new-background to generate and preview random image
+  getImageButton.addEventListener("click", getRandomPicOnTheme);
+
+  //attach event listener to preview font in font choice window when user
+  //selects a new font from the dropdown
+  fontDropdownMenu.addEventListener("change", previewFont);
+
+  //attach event listener to applyFont button to change font on poster 
+  //when clicked
+  applyFontButton.addEventListener("click", applyFont);
+
+  //attach event listeners to font size buttons
+  quoteSizePlusButton.addEventListener("click", changeFontSize);
+  quoteSizeMinusButton.addEventListener("click", changeFontSize);
+  authorSizePlusButton.addEventListener("click", changeFontSize);
+  authorSizeMinusButton.addEventListener("click", changeFontSize);
+
+  //call function to add listners to layout preview images
+  addListenersToLayoutPrevs();
+
+}
+
+//get buttons and inputs that will have event listeners as global variables
 const getQuoteButton = document.querySelector("#get-quote");
 const fontColorPicker = document.querySelector("#font-color-picker");
 const getImageButton = document.querySelector("#get-pic");
 const fontDropdownMenu = document.querySelector("#font-list");
 const applyFontButton = document.querySelector("#change-font");
 
-//apply event lister to get-quote button to generate and preview a random quote
-getQuoteButton.addEventListener("click", getRandomQuote);
+const quoteSizePlusButton = document.querySelector("#quote-plus");
+const quoteSizeMinusButton = document.querySelector("#quote-minus");
+const authorSizePlusButton = document.querySelector("#author-plus");
+const authorSizeMinusButton = document.querySelector("#author-minus");
 
-//attach event listners to color picker to change poster text color
-fontColorPicker.addEventListener("change", changeQuoteColor);
-fontColorPicker.addEventListener("input", changeQuoteColor);
 
-//attach event listener to new-background to generate and preview random image
-getImageButton.addEventListener("click", getRandomPicOnTheme);
-
-//attach event listener to preview font in font choice window when user
-//selects a new font from the dropdown
-fontDropdownMenu.addEventListener("change", previewFont);
-
-//attach event listener to applyFont button to change font on poster 
-//when clicked
-applyFontButton.addEventListener("click", applyFont);
 
 //call functions that should run on load
+// generateRandomPoster();
+// getImageTopics();
 getQuoteGenres();
-getImageTopics();
 listFonts();
-generateRandomPoster();
+addAllEventListeners();
+
+
+
+

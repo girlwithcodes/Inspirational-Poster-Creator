@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Dancing+Script&family=Emilys+Candy&family=Indie+Flower&family=Josefin+Slab:wght@100&family=Libre+Baskerville&family=Mountains+of+Christmas&family=Orbitron&family=Pacifico&family=Paprika&family=Patrick+Hand&family=Rancho&family=Rochester&family=Shadows+Into+Light&family=Viaoda+Libre&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Dancing+Script&family=Emilys+Candy&family=Indie+Flower&family=Josefin+Slab:wght@100&family=Libre+Baskerville&family=Mate&family=Mountains+of+Christmas&family=Orbitron&family=Pacifico&family=Paprika&family=Patrick+Hand&family=Rancho&family=Rochester&family=Shadows+Into+Light&family=Viaoda+Libre&display=swap" rel="stylesheet">
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -15,14 +15,14 @@
   <title>Inspirational Poster Creator</title>
 </head>
 <body>
-  <header>
-    <h1>Inspiration Corner</h1>
+  <header id="header">
+    <h1> 🌈 Inspiration <span>Corner</span></h1>
   </header>
   <main>
     <section id="poster-sect">
       <h2>Your Poster</h2>
       <div id="pic-div">
-        <div id="quote-div">
+        <div id="quote-div" class="layout-1">
           <p id="quote-text"></p>
           <p id="quote-author"></p>
         </div>
@@ -31,32 +31,60 @@
     </section>
 
     <section id="choice-menus">
+
       <div class="choices-div" id="quote-choice">
         <label for="quote-genres">Choose Quote Genre:</label>
         <select id="quote-genres"></select>
         <button id="get-quote">New Quote</button>
         <div id="quote-preview-div">Quote Preview</div>
       </div>
+
       <div class="choices-div" id="pic-choice">
         <label for="pic-themes">Choose Background Theme:</label>
         <select id="pic-themes"></select>
         <button id="get-pic">New Background</button>
       </div>
+
       <div class="choices-div" id="font-choice">
         <label for="font-list">Choose a Font:</label>
         <select id="font-list"></select>
         <button id="change-font">Apply Font</button>
         <p id="font-preview">Font Preview</p>
-        <label for="font-color-picker">Choose Font Color:</label>
-        <input type="color" id="font-color-picker">
+        <div id="font-color-size-options">
+          <div>
+            <button id="quote-minus">-</button>
+            <label>Quote Text Size</label>
+            <button id="quote-plus">+</button>
+          </div>
+          <div>
+            <label for="font-color-picker">Choose Font Color:</label>
+            <input type="color" id="font-color-picker">
+          </div>
+          <div>
+            <button id="author-minus">-</button>
+            <label>Author Text Size</label>
+            <button id="author-plus">+</button>
+          </div>
+        </div>
       </div>
+
       <div class="choices-div" id="layout-choice">
-        <label for="layout-list">Choose a Layout:</label>
-        <select id="layout-list"></select>
-        <button id="change-layout">Apply Layout</button>
-        <p>Layout Preview</p>
+        <p>Choose a Layout:</p>
+        <div id="layout-list">
+          <img src="./layouts/p-layout-1.png" class="layout-prev" id="layout-1">
+          <img src="./layouts/p-layout-2.png" class="layout-prev" id="layout-2">
+          <img src="./layouts/p-layout-3.png" class="layout-prev" id="layout-3">
+          <img src="./layouts/p-layout-4.png" class="layout-prev" id="layout-4">
+          <img src="./layouts/p-layout-5.png" class="layout-prev" id="layout-5">
+          <img src="./layouts/p-layout-6.png" class="layout-prev" id="layout-6">
+          <img src="./layouts/p-layout-7.png" class="layout-prev" id="layout-7">
+          <img src="./layouts/p-layout-8.png" class="layout-prev" id="layout-8">
+          <img src="./layouts/p-layout-9.png" class="layout-prev" id="layout-9">
+        </div>
       </div>
+
     </section>
+
   </main>
 
   <footer>
