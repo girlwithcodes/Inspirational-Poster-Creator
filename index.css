@@ -1,3 +1,8 @@
+/* ==========================================================================
+
+Stylying for overall body and repeated elements like buttons and dropdown menus
+
+==============================================================================*/
 body {
   display: flex;
   flex-direction: column;
@@ -8,6 +13,26 @@ body {
   background: #74ebd5;  /* fallback for old browsers */
   background: -webkit-linear-gradient(-45deg, #74ebd5, #ACB6E5, #dba2e4);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(-45deg #74ebd5, #ACB6E5, #dba2e4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+button {
+  background: none;
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  font-family: "Viaoda Libre", "cursive";
+  line-height: 10px;
+  margin: 2px auto;
+  padding: 3px 5px;
+  background: -webkit-linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+button:hover {
+  
+  background: repeating-linear-gradient(-45deg, rgba(219, 162, 228, 0.7) 0%, rgba(247, 168, 225, 0.7) 12.5%, rgba(255, 182, 193, 0.7) 25%, rgba(255, 215, 156, 0.8) 37.5%, rgba(219, 162, 228, 0.7) 50%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  animation: slide 5s linear infinite forwards;
 }
 
 /* ==========================================================================
@@ -133,8 +158,9 @@ h2 {
   width: 45vw;
   text-align: center;
   margin: 1vh;
-  font-family: "Rancho", "cursive";
-  font-size: 3vh;
+  font-family: "Viaoda Libre", "cursive";
+  font-size: 2.5vh;
+  line-height: 10px;
   background: rgba(255, 255, 255, 0.536);
   border-radius: 5px;
   color: white;
@@ -239,7 +265,7 @@ div.portrait > img {
 #layout-choice {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -264,6 +290,7 @@ div.portrait > img {
   flex-wrap: nowrap;
   justify-content: space-evenly;
   font-size: 14px;
+  margin-bottom: 2vw;
 }
 
 #font-color-size-options > div {
@@ -318,6 +345,7 @@ div.portrait > img {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin: 1vh;
 }
 
 #quote-preview-div > p {

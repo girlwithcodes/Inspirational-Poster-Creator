@@ -1,4 +1,10 @@
 
+//===============================================================================//
+//
+//    Declare and Initialize global variables
+//
+//===============================================================================//
+
 //set array of font options as a global variable
 const fontList = [
   {fontFamily: ["Viaoda Libre", " cursive"]},
@@ -18,13 +24,28 @@ const fontList = [
   {fontFamily: ["Paprika", "cursive"]}
 ]
 
+//get buttons and inputs that will have event listeners as global variables
+const getQuoteButton = document.querySelector("#get-quote");
+const fontColorPicker = document.querySelector("#font-color-picker");
+const getImageButton = document.querySelector("#get-pic");
+const fontDropdownMenu = document.querySelector("#font-list");
+const applyFontButton = document.querySelector("#change-font");
+
+const quoteSizePlusButton = document.querySelector("#quote-plus");
+const quoteSizeMinusButton = document.querySelector("#quote-minus");
+const authorSizePlusButton = document.querySelector("#author-plus");
+const authorSizeMinusButton = document.querySelector("#author-minus");
+
 //===============================================================================//
 //
-//    Function to generate options and populate dropdown menus
+//    Functions to generate options and populate dropdown menus
 //
 //===============================================================================//
 
+
+//==============================================================
 //Populate quote genre dropdown list when passed genreList array
+//==============================================================
 const listGenres = (genreList) => {
   
   //get quote genre dropdown list to variable
@@ -43,8 +64,10 @@ const listGenres = (genreList) => {
   })
 }
 
+//====================================================================
 //Get list of quote genres from quote garden API
 //and call function to populate Quote Genre dropdown with genre values
+//====================================================================
 const getQuoteGenres = async() => {
   //set url to get quote genres
   const url="https://quote-garden.herokuapp.com/api/v3/genres";
@@ -60,8 +83,9 @@ const getQuoteGenres = async() => {
   }
 }
 
-
+//==============================================================
 //Populate image topics dropdown menu with image topics list
+//==============================================================
 const listImageThemes = (topicsList) => {
   
   //grab dropdown menu for topics list
@@ -80,8 +104,10 @@ const listImageThemes = (topicsList) => {
   })
 }
 
+//==============================================================
 //Get list of image topics from Unsplash API
 //call function to populate topics dropdown menu with topic list
+//==============================================================
 const getImageTopics = async () => {
   
   //url to return list of all 27 image topics from unsplash
@@ -97,7 +123,9 @@ const getImageTopics = async () => {
   }
 }
 
-//populates font choice dropdown menu with list of font options
+//==============================================================
+//Populate font choice dropdown menu with list of font options
+//==============================================================
 const listFonts = () => {
   
   //get font dropdown menu
@@ -123,7 +151,9 @@ const listFonts = () => {
 //===============================================================================//
 
 
-//removes the previous quote preview from the preview window
+//==============================================================
+//Remove the previous quote preview from the preview window
+//==============================================================
 const removePreviousQuotePreview = () => {
   const previewDiv = document.querySelector("#quote-preview-div");
   if(previewDiv) {
@@ -131,7 +161,9 @@ const removePreviousQuotePreview = () => {
   }
 }
 
-//apply selected quote to poster
+//===================================
+//Apply selected quote to poster
+//===================================
 const applyQuote = (e) => {
   e.preventDefault();
 
@@ -148,8 +180,9 @@ const applyQuote = (e) => {
   posterAuthor.innerText = previewAuthor.innerText;
 }
 
-
-//display preview of quote, create button to apply quote to poster
+//================================================================
+//Display preview of quote, create button to apply quote to poster
+//================================================================
 const previewQuote = (quoteData) => {
 
   //remove a previous preview
@@ -187,8 +220,9 @@ const previewQuote = (quoteData) => {
   applyButton.addEventListener("click", applyQuote);
 }
 
-
-//get a random quote using the quote garden API
+//=================================================
+//Get a random quote using the quote garden API
+//=================================================
 const getRandomQuote = async(e) => {
   //prevent page reload
   e.preventDefault();
@@ -222,7 +256,10 @@ const getRandomQuote = async(e) => {
 //
 //========================================================================================//
 
-//remove prevous background preview from background choice div
+
+//================================================================
+//Remove prevous background preview from background choice div
+//================================================================
 const removePreviousBackgroundPreview = () => {
   const previousImage = document.querySelector("#background-preview-div");
   if(previousImage) {
@@ -230,7 +267,9 @@ const removePreviousBackgroundPreview = () => {
   }
 }
 
-//remove previous background from poster
+//=========================================
+//Remove previous background from poster
+//=========================================
 const removePreviousBackground = () => {
   const previousImage = document.querySelector("#poster-image");
   if(previousImage) {
@@ -238,7 +277,9 @@ const removePreviousBackground = () => {
   }
 }
 
-//apply chosen background to poster
+//=========================================
+//Apply chosen background to poster
+//=========================================
 const applyBackground = (imageData) => {
 
   //remove previous background
@@ -281,8 +322,10 @@ const applyBackground = (imageData) => {
   posterQuoteDiv.height = imageData.height;
 }
 
-//display preview of randomly generated background image as a thumbnail 
-//create button to allow user to choose to apply it to poster 
+//=======================================================================
+//Display preview of randomly generated background image as a thumbnail 
+//Create button to allow user to choose to apply it to poster 
+//=======================================================================
 const previewBackground = (imageData) => {
   //get correct div to which to append thumbnail preview
   const backgroundChoiceDiv = document.querySelector("#pic-choice");
@@ -314,8 +357,10 @@ const previewBackground = (imageData) => {
   });
 }
 
-//gets random picture object from Unsplash API based on user-selected theme
-//calls function to preview photo
+//==========================================================================
+//Get random picture object from Unsplash API based on user-selected theme
+//Call function to preview photo
+//=========================================================================
 const getRandomPicOnTheme = async(e) => {
   e.preventDefault();
 
@@ -345,7 +390,9 @@ const getRandomPicOnTheme = async(e) => {
 //========================================================================================//
 
 
-//changes the font color of the poster text based on user selection
+//======================================================================
+//Changes the font color of the poster text based on user selection
+//======================================================================
 const changeQuoteColor = (event) => {
   //get poster text elements
   const quoteText = document.querySelector("#quote-text");
@@ -356,7 +403,9 @@ const changeQuoteColor = (event) => {
   quoteAuthor.style.color = event.target.value;
 }
 
-//create a font preview in font choice div
+//=============================================
+//Create a font preview in font choice div
+//=============================================
 const previewFont = () => {
   
   //get font choice dropdown menu
@@ -372,8 +421,9 @@ const previewFont = () => {
   fontPreview.style.fontFamily = fontChoice;
 }
 
-
-//apply currently selected font to poster text
+//===============================================
+//Apply currently selected font to poster text
+//===============================================
 const applyFont = () => {
   //get poster quote and author text
   const quoteDiv = document.querySelector("#quote-div");
@@ -383,7 +433,7 @@ const applyFont = () => {
   //get font dropdown menu and currently selected font
   const fontMenu = document.querySelector("#font-list");
   const selectedFont = fontMenu[fontMenu.selectedIndex].value;
-  console.log(selectedFont);
+  
 
   //apply selected font to poster text
   quoteDiv.style.fontFamily = selectedFont;
@@ -391,7 +441,9 @@ const applyFont = () => {
   authorText.style.fontFamily=selectedFont;
 }
 
-//function to change fontsizes
+//================================================================
+//Function to change font sizes of author and/or quote on poster
+//================================================================
 const changeFontSize = (event) => {
   const buttonClicked = event.target;
   
@@ -446,8 +498,10 @@ const changeFontSize = (event) => {
 //========================================================================================//
 
 
-//changes the layout class of the poster to match the layout clicked in the layout
-//preview window by removing 
+//==================================================================================
+//Change the layout class of the poster to match the layout clicked in the layout
+//preview window by replacing current poster layout class 
+//==================================================================================
 const changeLayout = (newLayout) => {
 
   const quoteDiv = document.querySelector("#quote-div");
@@ -469,7 +523,10 @@ const changeLayout = (newLayout) => {
 //
 //========================================================================================//
 
-//generates and returns random hex color
+
+//=========================================
+//Generate and return random hex color
+//=========================================
 const getRandomColor = () => {
   //list possible values for hex color
   const hexValues = "0123456789ABCDEF"
@@ -485,7 +542,9 @@ const getRandomColor = () => {
   return randomHexColor;
 }
 
-//generates a complet random poster with random image, quote, font color, font style and layout
+//================================================================================================
+///generates a complet random poster with random image, quote, font color, font style and layout
+//================================================================================================
 const generateRandomPoster = async() => {
   //get random image and apply to poster
 
@@ -580,12 +639,15 @@ const generateRandomPoster = async() => {
 
 //========================================================================================//
 //
-//    Get elements that need event listeners, add event listeners, and call functions
-//          to execute on load
+//          Add event listeners to necessary elements 
+//          and call functions to execute on load
 //
 //========================================================================================//
  
-//function to apply event listeners to layout preview images
+
+//=============================================================
+//Function to apply event listeners to layout preview images
+//=============================================================
 const addListenersToLayoutPrevs = () => {
   const layoutPreviewList = document.querySelectorAll(".layout-prev");
 
@@ -596,7 +658,9 @@ const addListenersToLayoutPrevs = () => {
   })
 }
 
-//function to apply event listeners to all elements that need them
+//=======================================================================
+//Function to apply event listeners to all other elements that need them
+//=======================================================================
 const addAllEventListeners = () => {
   //apply event lister to get-quote button to generate and preview a random quote
   getQuoteButton.addEventListener("click", getRandomQuote);
@@ -627,21 +691,9 @@ const addAllEventListeners = () => {
 
 }
 
-//get buttons and inputs that will have event listeners as global variables
-const getQuoteButton = document.querySelector("#get-quote");
-const fontColorPicker = document.querySelector("#font-color-picker");
-const getImageButton = document.querySelector("#get-pic");
-const fontDropdownMenu = document.querySelector("#font-list");
-const applyFontButton = document.querySelector("#change-font");
-
-const quoteSizePlusButton = document.querySelector("#quote-plus");
-const quoteSizeMinusButton = document.querySelector("#quote-minus");
-const authorSizePlusButton = document.querySelector("#author-plus");
-const authorSizeMinusButton = document.querySelector("#author-minus");
-
-
-
-//call functions that should run on load
+//=============================================================
+//Call functions to run on load
+//=============================================================
 generateRandomPoster();
 getImageTopics();
 getQuoteGenres();
