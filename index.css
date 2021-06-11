@@ -126,6 +126,7 @@ h1 {
 }
 
 /* ==================Styling for rainbow icon================= */
+/*  Rainbow animation adapted from CodingNepal video: https://www.youtube.com/watch?v=Hvrl93x-P3s */
 #rainbow {
   width: 45px;
   height: 45px;
@@ -543,12 +544,8 @@ footer {
 ==============================================================================*/
 
 @media only screen and (max-width: 500px) {
-  #pic-div {
-    width: 80vw;
-    height: 60vh;
-    /* border: 1px solid black; */
-  }
-
+  
+/* ================== Main section ================= */
   main {
     width: 95vw;
     display: grid;
@@ -558,8 +555,41 @@ footer {
     "A A A"
     "B B B"
     "B B B";
-
   }
+
+  /* ================== Poster Section ================= */
+  #poster-sect {
+    height: fit-content;
+    position: sticky;
+  }
+
+  /* ================== Poster Image ================= */
+  #pic-div {
+    width: 80vw;
+    height: 60vh;
+    /* border: 1px solid black; */
+  }
+
+  #pic-div {
+    height: fit-content;
+    width: fit-content;
+    position: sticky;
+  }
+
+  div.landscape > img {
+    width: 90vw;
+  }
+  
+  div.portrait > img {
+    height: 75vh;
+  }
+
+  /* ================== Poster Quote ================= */
+  #quote-div {
+    width: 100%;
+  }
+
+  /* ================== Choice/Preview Menus ================= */
   #choice-menus {
     width: 95vw; 
     display: flex;
@@ -574,30 +604,17 @@ footer {
     margin: 2vh;
   }
 
-  #poster-sect {
-    height: fit-content;
-    position: sticky;
+  /* ================== Font Menu ================= */
+  #font-color-size-options {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    font-size: 14px;
+    margin-bottom: 2vw;
   }
 
-  #pic-div {
-    height: fit-content;
-    width: fit-content;
-    position: sticky;
-  }
-
-  #quote-div {
-    width: 100%;
-  }
-  div.landscape > img {
-    width: 90vw;
-  
-  }
-  
-  div.portrait > img {
-    height: 75vh;
-    
-  }
-
+  /* ================== Layout Menu ================= */
   #layout-list {
     display: flex;
     flex-direction: row;
@@ -609,15 +626,7 @@ footer {
     max-width: 90vw;
   }
 
-  #font-color-size-options {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    font-size: 14px;
-    margin-bottom: 2vw;
-  }
-
+  /* ================== Stop clouds from displaying ================= */
   #clouds {
     display: none;
   }
