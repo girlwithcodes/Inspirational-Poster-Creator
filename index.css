@@ -276,11 +276,11 @@ div.portrait > img {
 
 
 #pic-div {
-  width: 20vw;
-  height: 70vh;
+  /* width: 20vw;
+  height: 70vh; */
   /* border: 1px solid rgb(155, 67, 255); */
   position: relative;
-  background-color: lightpink;
+  /* background-color: lightpink; */
   margin: 3px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }

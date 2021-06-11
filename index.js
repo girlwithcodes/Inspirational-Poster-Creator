@@ -642,8 +642,8 @@ const authorSizeMinusButton = document.querySelector("#author-minus");
 
 
 //call functions that should run on load
-// generateRandomPoster();
-// getImageTopics();
+generateRandomPoster();
+getImageTopics();
 getQuoteGenres();
 listFonts();
 addAllEventListeners();
