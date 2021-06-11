@@ -31,9 +31,10 @@ button {
 
 button:hover {
   
-  background: repeating-linear-gradient(-45deg, rgba(219, 162, 228, 0.7) 0%, rgba(247, 168, 225, 0.7) 12.5%, rgba(255, 182, 193, 0.7) 25%, rgba(255, 215, 156, 0.8) 37.5%, rgba(219, 162, 228, 0.7) 50%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  animation: slide 5s linear infinite forwards;
+  box-shadow: 0 10px 10px rgba(255, 234, 167, 0.6);
+  /* animation: slide 5s linear infinite forwards; */
+  color: rgb(255, 240, 189);
+  border-color: rgb(255, 240, 189);
 }
 
 /* ==========================================================================
@@ -77,7 +78,35 @@ h1 {
   width: 95vw;
   margin: 0 auto;
   top: -1vh;
-  
+  display: flex;
+  flex-direction: row;
+}
+
+.navlink{
+  color: white;
+  text-decoration: none;
+  font-family: "Viaoda Libre", "cursive";
+  padding: 0 2px;
+  border-radius: 5px;
+}
+
+.navlink:hover {
+  background: #74ebd5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(-45deg, rgba(116, 235, 213, 0.55), rgba(172, 182, 229, 0.55), rgba(219, 162, 228, 0.55));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-45deg rgba(116, 235, 213, 0.55) rgba(172, 182, 229, 0.55), rgba(219, 162, 228, 0.55)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* ================== Nav Bar Rainbow Icon ================= */
+#nav-icon {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50% 50% 0 0;
+  margin: 2px 2px 0 4px;
+
+  filter: saturate(200%);
+  background: #ffd79c;  /* fallback for old browsers */
+  background: repeating-linear-gradient(-45deg, #fce3ad 0%, #d2e5ac 7.14%, #74ebd5 14.28%, #ACB6E5 21.43%, #dba2e4 28.57%, #e3a1d0 35.71%, lightpink 42.86%, #ffd79c 50%);  /* Chrome 10-25, Safari 5.1-6 */ 
 }
 
 /* ================== First Line of Header ================= */
@@ -105,6 +134,7 @@ h1 {
 
   border-radius: 50% 50% 0 0;
 
+  filter: saturate(150%);
   background: #ffd79c;  /* fallback for old browsers */
   background: repeating-linear-gradient(-45deg, #fce3ad 0%, #d2e5ac 7.14%, #74ebd5 14.28%, #ACB6E5 21.43%, #dba2e4 28.57%, #e3a1d0 35.71%, lightpink 42.86%, #ffd79c 50%);  /* Chrome 10-25, Safari 5.1-6 */ 
 
@@ -128,6 +158,46 @@ h1 {
   margin: 0.5vw;
   padding: 0;
   
+}
+
+/* ==================Cloud Images================= */
+#clouds {
+  position: absolute;
+  top: 0;
+  font-size: 80px;
+  opacity: 0.5;
+  width: 95vw;
+}
+
+#cloud1 {
+  position: absolute;
+  left: 5vw;
+  top: 2vh;
+}
+#cloud2 {
+  position: absolute;
+  left: 27vw;
+  top: 1vh;
+}
+#cloud3 {
+  position: absolute;
+  right: 25vw;
+  top: 7vh;
+}
+#cloud4 {
+  position: absolute;
+  right: 12vw;
+  top: 2vh;
+}
+#cloud5 {
+  position: absolute;
+  left: 15vw;
+  top: 8vh;
+}
+#cloud6 {
+  position: absolute;
+  right: 4vw;
+  top: 9vh;
 }
 
 /* ==========================================================================
@@ -176,10 +246,12 @@ h2 {
 /* ================== Poster Picture ================= */
 div.landscape > img {
   width: 48vw;
+  
 }
 
 div.portrait > img {
   height: 75vh;
+  
 }
 
 /* ================== The actual poster object that contains pic and quote ================= */
@@ -236,6 +308,7 @@ Styling for choice menus
   line-height: 10px;
   background: rgba(255, 255, 255, 0.536);
   border-radius: 5px;
+  overflow-y: auto;
   color: white;
   /* box-shadow from https://getcssscan.com/css-box-shadow-examples #28 */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -289,11 +362,14 @@ Styling for the Background/Image Choice Menu
 
 /* ================== Div that holds the image preview and apply button ================= */
 #background-preview-div {
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 80%;
 }
+
 
 /* ==========================================================================
 Styling for font choice menu
@@ -305,6 +381,7 @@ Styling for font choice menu
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  align-items: center;
   font-size: 14px;
   margin-bottom: 2vw;
 }
@@ -437,6 +514,26 @@ footer {
   /* box-shadow from https://getcssscan.com/css-box-shadow-examples #24 */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Viaoda Libre", "cursive";
+}
+
+#footer-icon {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50% 50% 0 0;
+  margin: 2px 2px 0 4px;
+
+  background: #ffd79c;  /* fallback for old browsers */
+  background: repeating-linear-gradient(-45deg, #fce3ad 0%, #d2e5ac 7.14%, #74ebd5 14.28%, #ACB6E5 21.43%, #dba2e4 28.57%, #e3a1d0 35.71%, lightpink 42.86%, #ffd79c 50%);  /* Chrome 10-25, Safari 5.1-6 */ 
+
+  text-align: center;
+  vertical-align: center;
+  color: rgb(255, 255, 255);
+  filter: saturate(200%);
 }
 
 /* ==========================================================================
@@ -493,10 +590,12 @@ footer {
   }
   div.landscape > img {
     width: 90vw;
+  
   }
   
   div.portrait > img {
     height: 75vh;
+    
   }
 
   #layout-list {
@@ -508,6 +607,37 @@ footer {
     margin: 1px; 
     overflow: auto;
     max-width: 90vw;
+  }
+
+  #font-color-size-options {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    font-size: 14px;
+    margin-bottom: 2vw;
+  }
+
+  #clouds {
+    display: none;
+  }
+  #cloud1 {
+    display: none;
+  }
+  #cloud2 {
+    display: none;
+  }
+  #cloud3{
+    display: none;
+  }
+  #cloud4 {
+    display: none;
+  }
+  #cloud5 {
+    display: none;
+  }
+  #cloud6 {
+    display: none;
   }
 
 }

@@ -48,7 +48,6 @@ const authorSizeMinusButton = document.querySelector("#author-minus");
 //==============================================================
 const listGenres = (genreList) => {
   
-  console.log("quote dropdown list");
   //get quote genre dropdown list to variable
   const genreMenu = document.querySelector("#quote-genres");
   
@@ -70,7 +69,7 @@ const listGenres = (genreList) => {
 //and call function to populate Quote Genre dropdown with genre values
 //====================================================================
 const getQuoteGenres = async() => {
-  console.log("get list of quote genres");
+
   //set url to get quote genres
   const url="https://quote-garden.herokuapp.com/api/v3/genres";
   try {
@@ -89,8 +88,7 @@ const getQuoteGenres = async() => {
 //Populate image topics dropdown menu with image topics list
 //==============================================================
 const listImageThemes = (topicsList) => {
-  
-  console.log("image dropdown");
+
   //grab dropdown menu for topics list
   const themesMenu = document.querySelector("#pic-themes");
   
@@ -113,7 +111,6 @@ const listImageThemes = (topicsList) => {
 //==============================================================
 const getImageTopics = async () => {
   
-  console.log("get image topics");
   //url to return list of all 27 image topics from unsplash
   const url = "https://api.unsplash.com/topics/?client_id=cirZDpP6EXieKtfB9ethI1UinEjLOoSQTBN9rQYu3w8&per_page=27";
   
@@ -132,7 +129,6 @@ const getImageTopics = async () => {
 //==============================================================
 const listFonts = () => {
   
-  console.log("font dropdown");
   //get font dropdown menu
   const fontMenu = document.querySelector("#font-list");
 
@@ -332,6 +328,7 @@ const applyBackground = (imageData) => {
 //Create button to allow user to choose to apply it to poster 
 //=======================================================================
 const previewBackground = (imageData) => {
+  
   //get correct div to which to append thumbnail preview
   const backgroundChoiceDiv = document.querySelector("#pic-choice");
 
@@ -339,7 +336,7 @@ const previewBackground = (imageData) => {
   removePreviousBackgroundPreview();
 
   //create div to hold preview image and button
-  const previewDiv = document.querySelector("div");
+  const previewDiv = document.createElement("div");
   previewDiv.id = "background-preview-div";
 
   //create preview image and assign src to thumbnail url
