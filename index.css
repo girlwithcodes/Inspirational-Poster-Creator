@@ -17,7 +17,8 @@ body {
 
 button {
   background: none;
-  border: 2px solid white;
+  border: 1px solid white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   border-radius: 3px;
   color: white;
   font-family: "Viaoda Libre", "cursive";
@@ -41,9 +42,11 @@ Stylying For Header Section Elements
 
 ==============================================================================*/
 
+/* ================== Full Header ================= */
 header {
   /* border: 1px solid green; */
   width: 95vw;
+  border-radius: 5px;
   /* height: fit-content; */
   display: flex;
   flex-direction: column;
@@ -52,11 +55,15 @@ header {
   /* background: lightpink; */
   margin: 0 auto;
   line-height: 5vh;
+  background: -webkit-linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* box-shadow from https://getcssscan.com/css-box-shadow-examples #24 */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 
-
+/* ================== H1 elements of header ================= */
 h1 {
-  margin: 2vh auto 0 auto;
+  margin: 1vh auto;
   top: 5px;
   font-family: 'Rancho', cursive;
   font-size: 80px;
@@ -65,12 +72,12 @@ h1 {
   padding-bottom: 0;
 }
 
+/* ================== Nav Bar ================= */
 #nav {
-  background: -webkit-linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 95vw;
   margin: 0 auto;
   top: -1vh;
+  
 }
 
 /* ================== First Line of Header ================= */
@@ -144,6 +151,20 @@ main {
 Stylying For Poster Section
 ==============================================================================*/
 
+/* ================== Full Poster Section ================= */
+#poster-sect {
+  /* border: 2px solid red; */
+  width: 45vw;
+  margin: 0 auto;
+  /* height: 90vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-position: cover; */
+  grid-area: A;
+}
+
 /* ==================The h2 Title for poster section================= */
 h2 {
   font-family: "Rancho", "cursive";
@@ -152,6 +173,58 @@ h2 {
   margin: 1vh;
 }
 
+/* ================== Poster Picture ================= */
+div.landscape > img {
+  width: 48vw;
+}
+
+div.portrait > img {
+  height: 75vh;
+}
+
+/* ================== The actual poster object that contains pic and quote ================= */
+#pic-div {
+  /* background-color: lightpink;
+  width: 20vw;
+  height: 70vh; */
+  /* border: 1px solid rgb(155, 67, 255); */
+  position: relative;
+  margin: 3px;
+  /* box-shadow from https://getcssscan.com/css-box-shadow-examples #20 */
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+/* ================== Div that holds quote and author paragraphs on poster================= */
+#quote-div {
+  /* width: 50vw; */
+  /* border: 1px solid rgb(0, 255, 42); */
+  position: absolute;
+  margin: 0 auto;
+}
+
+/* ================== The paragraph that holds the quote on the poster================= */
+#quote-text {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+/* ==========================================================================
+Styling for choice menus
+==============================================================================*/
+
+/* ================== Full section that holds all choice menus================= */
+#choice-menus {
+  grid-area: B;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid blue; */
+  width: 48vw;
+  margin-left: 2vw;
+}
+
+/* ================== Common styling for all choice menus ================= */
 .choices-div {
   /* border: 1px solid orange; */
   height: 20vh;
@@ -164,6 +237,7 @@ h2 {
   background: rgba(255, 255, 255, 0.536);
   border-radius: 5px;
   color: white;
+  /* box-shadow from https://getcssscan.com/css-box-shadow-examples #28 */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   /* background gradient below adapted from https://uigradients.com/#DigitalWater */
   background: #74ebd5;  /* fallback for old browsers */
@@ -172,18 +246,118 @@ h2 {
   /* (-45deg #d2e5ac, #74ebd5, #ACB6E5) */
 }
 
+/* ================== The Paragraph Elements of the Choic Menus ================= */
 .choices-div p{
   font-size: 16px;
   width: 40vw;
 }
 
-div.landscape > img {
-  width: 48vw;
+/* ==========================================================================
+Styling for the Quote Choice Menu
+==============================================================================*/
+
+/* ================== The Paragraph that holds the current quote being previewed ================= */
+#quote-choice {
+  overflow-y: auto;
 }
 
-div.portrait > img {
-  height: 75vh;
+/* ================== Full quote choice menu ================= */
+#quote-preview-div {
+  /* border: 2px solid yellow; */
+  font-family: serif;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1vh;
 }
+
+/* ================== Text for quote choice menu ================= */
+#quote-preview-div > p {
+  font-size: 14px;
+  font-family: serif;
+  margin: 2px;
+  text-align: center;
+  line-height: 12px;
+}
+
+/* ==========================================================================
+Styling for the Background/Image Choice Menu
+==============================================================================*/
+
+/* ================== Div that holds the image preview and apply button ================= */
+#background-preview-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================================================================
+Styling for font choice menu
+==============================================================================*/
+
+/* ================== Div that allows user to change font color and size ================= */
+#font-color-size-options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  font-size: 14px;
+  margin-bottom: 2vw;
+}
+
+/* =============== Indivdual divs for author text size, quote text size, and color picker ================= */
+#font-color-size-options > div {
+  /* background-color: rgba(255, 182, 193, 0.557); */
+  padding: 1px 2px;
+  border-radius: 3px;
+}
+
+/* ==========================================================================
+Styling for layout choice menu
+==============================================================================*/
+
+/* ================== Full layout choice menu ================= */
+#layout-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================== Layout Choice Menu Text ================= */
+#layout-choice > p {
+  margin: 1vh;
+}
+
+/* ================== List of layout preview images ================= */
+#layout-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1px; 
+  overflow: auto;
+  max-width: 40vw;
+}
+
+/* ================== Individual layout preview images ================= */
+.layout-prev {
+  height: 11vh;
+  margin: 2px;
+}
+
+.layout-prev:hover {
+  filter: saturate(400%);
+}
+
+/* ==========================================================================
+Layout option structures
+==============================================================================*/
 
 .layout-1 {
   width: 100%;
@@ -246,130 +420,6 @@ div.portrait > img {
   transform: translate(0, -50%);
 }
 
-.layout-prev {
-  height: 11vh;
-  margin: 2px;
-}
-
-.layout-prev:hover {
-  filter: saturate(400%);
-}
-
-#background-preview-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#layout-choice {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#layout-choice > p {
-  margin: 0;
-}
-
-#layout-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 1px; 
-  overflow: auto;
-  max-width: 40vw;
-}
-
-#font-color-size-options {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  font-size: 14px;
-  margin-bottom: 2vw;
-}
-
-#font-color-size-options > div {
-  /* background-color: rgba(255, 182, 193, 0.557); */
-  padding: 1px 2px;
-  border-radius: 3px;
-}
-
-
-
-
-#pic-div {
-  /* width: 20vw;
-  height: 70vh; */
-  /* border: 1px solid rgb(155, 67, 255); */
-  position: relative;
-  /* background-color: lightpink; */
-  margin: 3px;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
-
-#poster-sect {
-  /* border: 2px solid red; */
-  width: 45vw;
-  margin: 0 auto;
-  /* height: 90vh; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* background-position: cover; */
-  grid-area: A;
-}
-
-#quote-choice {
-  overflow-y: auto;
-}
-
-#quote-div {
-  /* width: 50vw; */
-  /* border: 1px solid rgb(0, 255, 42); */
-  position: absolute;
-  margin: 0 auto;
-}
-
-#quote-preview-div {
-  /* border: 2px solid yellow; */
-  font-family: serif;
-  padding: 2px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 1vh;
-}
-
-#quote-preview-div > p {
-  font-size: 14px;
-  font-family: serif;
-  margin: 2px;
-  text-align: center;
-}
-
-#quote-text {
-  font-size: 20px;
-  line-height: 20px;
-}
-
-#choice-menus {
-  grid-area: B;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  /* border: 1px solid blue; */
-  width: 48vw;
-  margin-left: 2vw;
-}
 
 /* ==========================================================================
 
@@ -384,7 +434,16 @@ footer {
   background: -webkit-linear-gradient(45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0 auto;
+  /* box-shadow from https://getcssscan.com/css-box-shadow-examples #24 */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  border-radius: 5px;
 }
+
+/* ==========================================================================
+
+@media query
+
+==============================================================================*/
 
 @media only screen and (max-width: 500px) {
   #pic-div {

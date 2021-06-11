@@ -48,6 +48,7 @@ const authorSizeMinusButton = document.querySelector("#author-minus");
 //==============================================================
 const listGenres = (genreList) => {
   
+  console.log("quote dropdown list");
   //get quote genre dropdown list to variable
   const genreMenu = document.querySelector("#quote-genres");
   
@@ -69,6 +70,7 @@ const listGenres = (genreList) => {
 //and call function to populate Quote Genre dropdown with genre values
 //====================================================================
 const getQuoteGenres = async() => {
+  console.log("get list of quote genres");
   //set url to get quote genres
   const url="https://quote-garden.herokuapp.com/api/v3/genres";
   try {
@@ -88,6 +90,7 @@ const getQuoteGenres = async() => {
 //==============================================================
 const listImageThemes = (topicsList) => {
   
+  console.log("image dropdown");
   //grab dropdown menu for topics list
   const themesMenu = document.querySelector("#pic-themes");
   
@@ -110,6 +113,7 @@ const listImageThemes = (topicsList) => {
 //==============================================================
 const getImageTopics = async () => {
   
+  console.log("get image topics");
   //url to return list of all 27 image topics from unsplash
   const url = "https://api.unsplash.com/topics/?client_id=cirZDpP6EXieKtfB9ethI1UinEjLOoSQTBN9rQYu3w8&per_page=27";
   
@@ -128,6 +132,7 @@ const getImageTopics = async () => {
 //==============================================================
 const listFonts = () => {
   
+  console.log("font dropdown");
   //get font dropdown menu
   const fontMenu = document.querySelector("#font-list");
 
@@ -334,14 +339,14 @@ const previewBackground = (imageData) => {
   removePreviousBackgroundPreview();
 
   //create div to hold preview image and button
-  const previewDiv = document.createElement("div");
+  const previewDiv = document.querySelector("div");
   previewDiv.id = "background-preview-div";
 
   //create preview image and assign src to thumbnail url
   const previewImage = document.createElement("img");
   previewImage.id = "pic-preview";
   previewImage.maxHeight = "8vh";
-  previewImage.src = imageData.urls.raw + "&h=90";
+  previewImage.src = imageData.urls.raw + "&h=80";
 
   //create Apply Background Button
   const applyBackgroundButton = document.createElement("button");
@@ -662,6 +667,7 @@ const addListenersToLayoutPrevs = () => {
 //Function to apply event listeners to all other elements that need them
 //=======================================================================
 const addAllEventListeners = () => {
+  console.log("add event listensers");
   //apply event lister to get-quote button to generate and preview a random quote
   getQuoteButton.addEventListener("click", getRandomQuote);
 
