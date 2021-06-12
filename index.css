@@ -296,6 +296,8 @@ div.portrait > img {
 #quote-div {
   position: absolute;
   margin: 0 auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 /* ================== The paragraph that holds the quote on the poster================= */
@@ -586,7 +588,7 @@ footer {
 
 ==============================================================================*/
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
   
 /* ================== Main section ================= */
   main {
@@ -603,20 +605,14 @@ footer {
   /* ================== Poster Section ================= */
   #poster-sect {
     height: fit-content;
-    position: sticky;
   }
 
   /* ================== Poster Image ================= */
   #pic-div {
     width: 80vw;
     height: 60vh;
-    /* border: 1px solid black; */
-  }
-
-  #pic-div {
     height: fit-content;
     width: fit-content;
-    position: sticky;
   }
 
   div.landscape > img {
@@ -630,6 +626,14 @@ footer {
   /* ================== Poster Quote ================= */
   #quote-div {
     width: 100%;
+  }
+
+  #quote-text {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  #quote-author {
+    font-size: 12px;
   }
 
   /* ================== Choice/Preview Menus ================= */
@@ -692,4 +696,23 @@ footer {
     display: none;
   }
 
+}
+
+@media only screen and (max-height: 500px) {
+  #quote-text {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  #quote-author {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-height: 350px) {
+  #quote-text {
+    font-size: 8px;
+  }
+  #quote-author {
+    font-size: 8px;
+  }
 }
