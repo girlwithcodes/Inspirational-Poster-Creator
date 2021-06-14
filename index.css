@@ -178,6 +178,11 @@ h1 {
   line-height: 20px;
 }
 
+#subtitle {
+  font-family: "Rochester", "cursive";
+  font-size: 2.5vh;
+  margin: 0 auto;
+}
 /* ==================Cloud Images================= */
 #clouds {
   width: 95vw;
@@ -306,6 +311,14 @@ div.portrait > img {
   line-height: 20px;
 }
 
+/* ================== The image attribution below the poster ================= */
+#poster-attribution {
+  font-size: 12px;
+}
+#poster-attribution > a {
+  color: white;
+}
+
 /* ==========================================================================
 Styling for choice menus
 ==============================================================================*/
@@ -404,6 +417,16 @@ Styling for the Background/Image Choice Menu
   align-items: center;
 
   margin: 0 auto;
+}
+
+/* ================== text of the image attribution in the image preview section ================= */
+#preview-attribution {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+#preview-attribution > a {
+  color: white;
 }
 
 

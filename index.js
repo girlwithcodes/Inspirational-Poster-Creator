@@ -321,6 +321,13 @@ const applyBackground = (imageData) => {
   const posterQuoteDiv = document.querySelector("#quote-div");
   posterQuoteDiv.width = imageData.width;
   posterQuoteDiv.height = imageData.height;
+
+  //change image attribution data below poster
+  //change name of Unsplash user and link to their Unsplash account
+  const username = document.querySelector("#poster-photographer");
+  const utm = "?utm_source=inspiration_corner&utm_medium=referral";
+  username.innerText = imageData.user.name;
+  username.setAttribute("href", imageData.user.links.html+utm);
 }
 
 //=======================================================================
@@ -329,6 +336,7 @@ const applyBackground = (imageData) => {
 //=======================================================================
 const previewBackground = (imageData) => {
   
+  console.log(imageData);
   //get correct div to which to append thumbnail preview
   const backgroundChoiceDiv = document.querySelector("#pic-choice");
 
@@ -345,12 +353,18 @@ const previewBackground = (imageData) => {
   previewImage.maxHeight = "8vh";
   previewImage.src = imageData.urls.raw + "&h=80";
 
+  //create image attribution
+  const imageAttribution = document.createElement("p");
+  imageAttribution.id = "preview-attribution";
+  const userProfileLink = imageData.user.links.html + "?utm_source=inspiration_corner&utm_medium=referral";
+  imageAttribution.innerHTML = `Photo by <a href="${userProfileLink}">${imageData.user.name}</a> on <a href="https://unsplash.com/?utm_source=inspiration_corner&utm_medium=referral">Unsplash</a>`;
+
   //create Apply Background Button
   const applyBackgroundButton = document.createElement("button");
   applyBackgroundButton.id = "apply-background";
   applyBackgroundButton.innerText = "Apply Background";
 
-  previewDiv.append(previewImage, applyBackgroundButton);
+  previewDiv.append(previewImage, imageAttribution, applyBackgroundButton);
   backgroundChoiceDiv.append(previewDiv);
 
   //add event listener to apply background function
@@ -592,6 +606,13 @@ const generateRandomPoster = async() => {
     //append image to poster
     poster.append(posterImage);
 
+    //change image attribution data below poster
+    //change name of Unsplash user and link to their Unsplash account
+    const username = document.querySelector("#poster-photographer");
+    const utm = "?utm_source=inspiration_corner&utm_medium=referral";
+    username.innerText = imageData.user.name;
+    username.setAttribute("href", imageData.user.links.html+utm);
+
     //get quote div and set width and height
     const posterQuoteDiv = document.querySelector("#quote-div");
     posterQuoteDiv.width = imageData.width;
@@ -664,7 +685,6 @@ const addListenersToLayoutPrevs = () => {
 //Function to apply event listeners to all other elements that need them
 //=======================================================================
 const addAllEventListeners = () => {
-  console.log("add event listensers");
   //apply event lister to get-quote button to generate and preview a random quote
   getQuoteButton.addEventListener("click", getRandomQuote);
 
