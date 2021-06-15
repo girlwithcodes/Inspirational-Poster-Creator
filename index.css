@@ -9,11 +9,8 @@ body {
   justify-content: center;;
   align-items: center;
   
-  /* background gradient below adapted from https://uigradients.com/#DigitalWater */
-  background: #74ebd5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(-45deg, #74ebd5, #ACB6E5, #dba2e4);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(-45deg #74ebd5, #ACB6E5, #dba2e4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: center / cover no-repeat url("https://images.pexels.com/photos/6662557/pexels-photo-6662557.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  
   color: white;
 }
 
@@ -22,8 +19,8 @@ button {
   padding: 3px 5px;
 
   background: none;
-  background: -webkit-linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(-45deg, rgba(156, 203, 238, 0.7), rgba(254, 183, 183, 0.7), rgba(255, 183, 182, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-45deg, rgba(156, 203, 238, 0.7), rgba(254, 183, 183, 0.7), rgba(255, 183, 182, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   border: 1px solid white;
   border-radius: 3px;
@@ -36,11 +33,10 @@ button {
 }
 
 button:hover {
-  border-color: rgb(255, 240, 189);
-  box-shadow: 0 10px 10px rgba(255, 234, 167, 0.6);
-  /* animation: slide 5s linear infinite forwards; */
+  border-color: rgb(255, 238, 238);
+  box-shadow: 0 10px 10px rgba(255, 212, 211, 0.6);
   
-  color: rgb(255, 240, 189);
+  color: rgb(255, 246, 246);
 }
 
 /* ==========================================================================
@@ -60,9 +56,7 @@ header {
   
   margin: 0 auto;
 
-  background: -webkit-linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(-45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  /* box-shadow from https://getcssscan.com/css-box-shadow-examples #24 */
+  background-color: #84b4cbbd; 
   
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
@@ -93,6 +87,7 @@ h1 {
   
   margin: 0 auto;
   top: -1vh;
+
 }
 
 .navlink{
@@ -107,8 +102,8 @@ h1 {
 
 .navlink:hover {
   background: #74ebd5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(-45deg, rgba(116, 235, 213, 0.55), rgba(172, 182, 229, 0.55), rgba(219, 162, 228, 0.55));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(-45deg rgba(116, 235, 213, 0.55) rgba(172, 182, 229, 0.55), rgba(219, 162, 228, 0.55)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(-45deg, rgba(156, 203, 238, 0.7), rgba(254, 183, 183, 0.7), rgba(255, 183, 182, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-45deg, rgba(156, 203, 238, 0.7), rgba(254, 183, 183, 0.7), rgba(255, 183, 182, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* ================== Nav Bar Rainbow Icon ================= */
@@ -126,7 +121,7 @@ h1 {
 
 /* ================== First Line of Header ================= */
 #first-line {
-  /* border: 1px solid pink; */
+
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -270,6 +265,7 @@ h2 {
   font-family: "Rancho", "cursive";
   font-size: 6vh;
   line-height: 4vh;
+  color: white;
 }
 
 /* ================== Poster Picture ================= */
@@ -314,6 +310,7 @@ div.portrait > img {
 /* ================== The image attribution below the poster ================= */
 #poster-attribution {
   font-size: 12px;
+  color: white;
 }
 #poster-attribution > a {
   color: white;
@@ -344,13 +341,6 @@ Styling for choice menus
  
   margin: 1vh;
   
-  background: #74ebd5;  /* fallback for old browsers */
-   /* background gradient below adapted from https://uigradients.com/#DigitalWater */
-  background: -webkit-linear-gradient(45deg, rgba(210, 229, 172, 0.7), rgba(117, 235, 213, 0.6), rgba(172, 182, 229, 0.6));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(45deg, rgba(210, 229, 172, 0.7), rgba(117, 235, 213, 0.6), rgba(172, 182, 229, 0.6))); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  /* (-45deg #d2e5ac, #74ebd5, #ACB6E5) */
-
-   /* box-shadow from https://getcssscan.com/css-box-shadow-examples #28 */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border-radius: 5px;
 
@@ -491,10 +481,12 @@ Styling for layout choice menu
   height: 11vh;
   
   margin: 2px;
+
+  filter: saturate(50%);
 }
 
 .layout-prev:hover {
-  filter: saturate(400%);
+  filter: saturate(200%);
 }
 
 /* ==========================================================================
@@ -578,12 +570,12 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
-  background: -webkit-linear-gradient(45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(45deg, rgba(219, 162, 228, 0.7), rgba(247, 168, 225, 0.7), rgba(255, 182, 193, 0.7), rgba(255, 215, 156, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-color: #84b4cbbd; 
+
   margin: 0 auto;
-  /* box-shadow from https://getcssscan.com/css-box-shadow-examples #24 */
   
+  /* box-shadow from https://getcssscan.com/css-box-shadow-examples #24 */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
   
   font-family: "Viaoda Libre", "cursive";
@@ -596,7 +588,8 @@ footer {
   border-radius: 50% 50% 0 0;
   margin: 2px 2px 0 4px;
 
-  background: #ffd79c;  /* fallback for old browsers */
+  background: #ffd79c;  
+  /* fallback for old browsers */
   background: repeating-linear-gradient(-45deg, #fce3ad 0%, #d2e5ac 7.14%, #74ebd5 14.28%, #ACB6E5 21.43%, #dba2e4 28.57%, #e3a1d0 35.71%, lightpink 42.86%, #ffd79c 50%);  /* Chrome 10-25, Safari 5.1-6 */ 
 
   text-align: center;
